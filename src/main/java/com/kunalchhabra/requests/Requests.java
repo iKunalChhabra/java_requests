@@ -1,48 +1,18 @@
 package com.kunalchhabra.requests;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
 import java.util.Scanner;
 
-class Response{
-    private int statusCode;
-    private String data;
-
-    public Response(int statusCode, String data) {
-        this.statusCode = statusCode;
-        this.data = data;
-    }
-
-    public int getStatusCode() {
-        return this.statusCode;
-    }
-
-    public String toString() {
-        return this.data;
-    }
-
-    public JSONObject toJsonObject(){
-        return new JSONObject(this.data);
-    }
-
-    public JSONArray toJsonArray(){
-        return new JSONArray(this.data);
-    }
-}
-
 public class Requests {
-    private void setHeaders(HttpURLConnection connection, HashMap<String, String> headers){
+    private void setHeaders(HttpURLConnection connection, Header headers){
         headers.forEach(connection::setRequestProperty);
     }
-    private String setParams(String url, HashMap<String, String> params) throws IOException {
+    private String setParams(String url, Param params) {
         StringBuilder urlBuilder = new StringBuilder(url);
         if (params.size() > 0) {
             urlBuilder.append("?");
@@ -55,7 +25,7 @@ public class Requests {
         return urlBuilder.toString();
     }
 
-    private String readResponse(InputStream input) throws IOException {
+    private String readResponse(InputStream input) {
         Scanner scanner = new Scanner(input);
         StringBuilder response = new StringBuilder();
         while (scanner.hasNextLine()) {
@@ -69,10 +39,10 @@ public class Requests {
         return readResponse(connection.getInputStream());
     }
 
-    private String readError(HttpURLConnection connection) throws IOException {
+    private String readError(HttpURLConnection connection) {
         return readResponse(connection.getErrorStream());
     }
-    public Response get(String url, HashMap<String, String> headers, HashMap<String, String> params) throws IOException {
+    public Response get(String url, Header headers, Param params) throws IOException {
         url = this.setParams(url, params);
 
         URL urlObject = new URL(url);
@@ -95,12 +65,12 @@ public class Requests {
 
         return new Response(statusCode, data);
     }
-    public Response get(String url, HashMap<String, String> headers) throws IOException {
-        HashMap<String, String> params = new HashMap<>();
+    public Response get(String url, Header headers) throws IOException {
+        Param params = new Param();
         return this.get(url, headers, params);
     }
     public Response get(String url) throws IOException {
-        HashMap<String, String> headers = new HashMap<>();
+        Header headers = new Header();
         return this.get(url, headers);
     }
 }
