@@ -5,10 +5,14 @@ A simple python requests like library for Java.
 ## Usage
 
 ```java
+package com.kunalchhabra.sample;
+
+import com.kunalchhabra.requests.Header;
+import com.kunalchhabra.requests.Param;
 import com.kunalchhabra.requests.Requests;
+import com.kunalchhabra.requests.Response;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 
 public class Main {
@@ -17,13 +21,13 @@ public class Main {
         String url = "http://127.0.0.1:5000/users";
 
         // request headers
-        HashMap<String, String> headers = new HashMap<>();
-        headers.put("Content-Type", "application/json");
-        headers.put("Accept", "application/json");
+        Header headers = new Header();
+        headers.set("Content-Type", "application/json");
+        headers.set("Accept", "application/json");
 
         // request params
-        HashMap<String, String> params = new HashMap<>();
-        params.put("name", "Jane Doe");
+        Param params = new Param();
+        params.set("name", "Jane Doe");
 
         // create a new Requests object
         Requests request = new Requests();
@@ -35,7 +39,6 @@ public class Main {
         System.out.println("User Id: " + response.toJsonObject().getInt("id"));
     }
 }
-
 ```
 ### Output
 ```bash

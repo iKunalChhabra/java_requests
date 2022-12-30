@@ -1,4 +1,9 @@
-package com.kunalchhabra.requests;
+package com.kunalchhabra.sample;
+
+import com.kunalchhabra.requests.Header;
+import com.kunalchhabra.requests.Param;
+import com.kunalchhabra.requests.Requests;
+import com.kunalchhabra.requests.Response;
 
 import java.io.IOException;
 
