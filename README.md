@@ -22,8 +22,7 @@ public class Main {
         String url = "https://jsonplaceholder.typicode.com/users/1";
 
         // create a new request and get the response
-        Requests requests = new Requests();
-        Response response = requests.get(url);
+        Response response = Requests.get(url);
 
         // print the response
         System.out.println("Status Code: " + response.getStatusCode());
