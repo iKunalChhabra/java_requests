@@ -69,7 +69,7 @@ Response: {
 
 (Lat, Lng): (-37.3159, 81.1496)
 ```
-[See other examples] (src/main/java/com/kunalchhabra/examples/)
+[See other examples](src/main/java/com/kunalchhabra/examples/)
 
 ## Notes
 - This is work in progress. I will be adding more features as I go.
