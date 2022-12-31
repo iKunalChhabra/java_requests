@@ -17,38 +17,56 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+
         // api endpoint
-        String url = "http://127.0.0.1:5000/users";
+        String url = "https://jsonplaceholder.typicode.com/users/1";
 
-        // request headers
-        Header headers = new Header();
-        headers.set("Content-Type", "application/json");
-        headers.set("Accept", "application/json");
-
-        // request params
-        Param params = new Param();
-        params.set("name", "Jane Doe");
-
-        // create a new Requests object
-        Requests request = new Requests();
-        Response response = request.get(url, headers, params);
+        // create a new request and get the response
+        Requests requests = new Requests();
+        Response response = requests.get(url);
 
         // print the response
-        System.out.println("Response: " + response);
         System.out.println("Status Code: " + response.getStatusCode());
-        System.out.println("User Id: " + response.toJsonObject().getInt("id"));
+        System.out.println("Response: " + response);
     }
 }
+
 ```
 ### Output
 ```bash
->> Response: {"id":2,"name":"Jane Doe"}
 >> Status Code: 200
->> User Id: 2
+Response: {
+  "id": 1,
+  "name": "Leanne Graham",
+  "username": "Bret",
+  "email": "Sincere@april.biz",
+  "address": {
+    "street": "Kulas Light",
+    "suite": "Apt. 556",
+    "city": "Gwenborough",
+    "zipcode": "92998-3874",
+    "geo": {
+      "lat": "-37.3159",
+      "lng": "81.1496"
+    }
+  },
+  "phone": "1-770-736-8031 x56442",
+  "website": "hildegard.org",
+  "company": {
+    "name": "Romaguera-Crona",
+    "catchPhrase": "Multi-layered client-server neural-net",
+    "bs": "harness real-time e-markets"
+  }
+}
 ```
+
 ## Notes
 - This is work in progress. I will be adding more features as I go.
-- Only HTTP protocol and GET method is supported as of now.
+- Protocol supported : HTTP
+- Methods supported : GET, POST, PUT, DELETE
+- Response format supported : JSON, TEXT, BYTE, BASE64, FILE
+- POST and PUT data format supported : BYTE
+- Authentication is not supported yet.
 
 ## Author
 Kunal Chhabra
