@@ -4,6 +4,7 @@ import com.kunalchhabra.requests.Header;
 import com.kunalchhabra.requests.Param;
 import com.kunalchhabra.requests.Requests;
 import com.kunalchhabra.requests.Response;
+import com.kunalchhabra.requests.ResponseHeader;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -51,6 +52,10 @@ public class ResponseTypes {
 
         // save to file
         response.toFile("src/main/java/com/kunalchhabra/examples/response.json");
+
+        // get headers
+        ResponseHeader responseHeaders = response.getHeaders();
+        System.out.println("Headers: " + responseHeaders);
 
     }
 }

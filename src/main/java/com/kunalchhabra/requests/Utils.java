@@ -22,6 +22,7 @@ public class Utils {
     protected static Response readConnection(HttpURLConnection connection) throws IOException {
         connection.connect();
         int statusCode = connection.getResponseCode();
+        ResponseHeader headers = new ResponseHeader(connection.getHeaderFields());
         byte[] byteData;
         if (statusCode == 200) {
             byteData = Utils.readData(connection);
@@ -31,7 +32,7 @@ public class Utils {
         }
         connection.disconnect();
 
-        return new Response(statusCode, byteData);
+        return new Response(statusCode, byteData, headers);
     }
 
     protected static void setHeaders(HttpURLConnection connection, Header headers){

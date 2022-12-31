@@ -13,14 +13,19 @@ import java.util.Base64;
 public class Response {
     private final int statusCode;
     private final byte[] byteData;
+    private final ResponseHeader headers;
 
-    protected Response(int statusCode, byte[] byteData) {
+    protected Response(int statusCode, byte[] byteData, ResponseHeader headers) {
         this.statusCode = statusCode;
         this.byteData = byteData;
+        this.headers = headers;
     }
 
     public int getStatusCode() {
         return this.statusCode;
+    }
+    public ResponseHeader getHeaders() {
+        return this.headers;
     }
 
     public String toString() {
