@@ -18,9 +18,9 @@ public class Requests {
     }
 
     // POST
-    public static Response post(String url, Header headers, Param params, byte[] byteDate) throws IOException {
+    public static Response post(String url, Header headers, Param params, byte[] byteData) throws IOException {
         HttpURLConnection connection = Utils.createConnection(url, "POST", headers, params);
-        Utils.setData(connection, byteDate);
+        Utils.setData(connection, byteData);
         return Utils.readConnection(connection);
     }
     public static Response post(String url, Header headers, Param params) throws IOException {
@@ -40,9 +40,9 @@ public class Requests {
     }
 
     // PUT
-    public static Response put(String url, Header headers, Param params, byte[] byteDate) throws IOException {
+    public static Response put(String url, Header headers, Param params, byte[] byteData) throws IOException {
         HttpURLConnection connection = Utils.createConnection(url, "PUT", headers, params);
-        Utils.setData(connection, byteDate);
+        Utils.setData(connection, byteData);
         return Utils.readConnection(connection);
     }
     public static Response put(String url, Header headers, Param params) throws IOException {

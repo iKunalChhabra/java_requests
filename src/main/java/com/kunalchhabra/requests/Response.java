@@ -51,4 +51,8 @@ public class Response {
         Path path = Paths.get(filePath);
         Files.write(path, this.toBytes());
     }
+
+    public Hash toHash() {
+        return new Hash(this.toBytes());
+    }
 }
