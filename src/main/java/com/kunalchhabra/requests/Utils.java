@@ -62,7 +62,7 @@ public class Utils {
         return readResponse(connection.getErrorStream());
     }
 
-    public static void setData(HttpURLConnection connection, byte[] byteDate) throws IOException {
+    protected static void setData(HttpURLConnection connection, byte[] byteDate) throws IOException {
         if (byteDate.length > 0) {
             connection.setDoOutput(true);
             connection.getOutputStream().write(byteDate);
