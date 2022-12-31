@@ -61,6 +61,34 @@ public class Requests {
         return Requests.put(url, new Header());
     }
 
+    // PATCH
+    public static Response patch(String url, Header headers, Param params, byte[] byteData) throws IOException {
+        System.out.println("Warning: 'PATCH' Method is not supported by Java's 'HttpURLConnection' used by this library." +
+                           " This library uses 'POST' method in request but overrides the method to 'PATCH' using HTTP header 'X-HTTP-Method-Override'." +
+                           " This may not work with some servers.");
+
+        HttpURLConnection connection = Utils.createConnection(url, "POST", headers, params);
+        connection.setRequestProperty("X-HTTP-Method-Override", "PATCH");
+        Utils.setData(connection, byteData);
+        return Utils.readConnection(connection);
+    }
+
+    public static Response patch(String url, Header headers, Param params) throws IOException {
+        return Requests.patch(url, headers, params, new byte[0]);
+    }
+
+    public static Response patch(String url, Header headers, String data) throws IOException {
+        return Requests.patch(url, headers, new Param(), new byte[0]);
+    }
+
+    public static Response patch(String url, Header headers) throws IOException {
+        return Requests.patch(url, headers, new Param(), new byte[0]);
+    }
+
+    public static Response patch(String url) throws IOException {
+        return Requests.patch(url, new Header());
+    }
+
     // DELETE
     public static Response delete(String url, Header headers, Param params) throws IOException {
         HttpURLConnection connection = Utils.createConnection(url, "DELETE", headers, params);

@@ -74,10 +74,11 @@ Response: {
 ## Notes
 - This is work in progress. I will be adding more features as I go.
 - Protocol supported : HTTP
-- Methods supported : GET, POST, PUT, DELETE
+- Methods supported : GET, POST, PUT, PATCH, DELETE
 - Response format supported : JSON, TEXT, BYTE, BASE64, FILE, HASH
 - POST and PUT data format supported : BYTE
 - Authentication is not supported yet.
+- Logging, Testing and Documentation are yet to be added.
 
 ## Author
 Kunal Chhabra
