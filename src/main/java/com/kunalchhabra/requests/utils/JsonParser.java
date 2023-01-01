@@ -1,4 +1,4 @@
-package com.kunalchhabra.requests;
+package com.kunalchhabra.requests.utils;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

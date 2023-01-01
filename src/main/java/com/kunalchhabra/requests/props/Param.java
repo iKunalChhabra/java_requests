@@ -1,4 +1,4 @@
-package com.kunalchhabra.requests;
+package com.kunalchhabra.requests.props;
 
 /**
  * Class to store Params,

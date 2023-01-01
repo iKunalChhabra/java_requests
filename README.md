@@ -1,14 +1,14 @@
 # Java Requests
 
-A simple python requests like library for Java.
+A simple python httpRequests like library for Java.
 
 ## Usage
 
 ```java
 package com.kunalchhabra.examples;
 
-import com.kunalchhabra.requests.Requests;
-import com.kunalchhabra.requests.Response;
+import com.kunalchhabra.requests.https.HttpsRequests;
+import com.kunalchhabra.requests.response.Response;
 
 import java.io.IOException;
 
@@ -16,8 +16,8 @@ class Example {
   public static void main(String[] args) throws IOException {
 
     // create a new request and get the response
-    Requests requests = new Requests();
-    Response response = requests.get("http://jsonplaceholder.typicode.com/users");
+    HttpsRequests requests = new HttpsRequests();
+    Response response = requests.get("https://jsonplaceholder.typicode.com/users");
 
     // print the response status code
     System.out.println("Status Code: " + response.getStatusCode());
@@ -40,6 +40,7 @@ class Example {
 ### Available Functionality
 - **Protocols:**
   - HTTP
+  - HTTPS
 - **Methods:**
   - GET
   - POST
@@ -64,14 +65,11 @@ class Example {
   - Bearer
   - Custom
 
-### Upcoming
-- Testing for each class.
-
 ## Author
 Kunal Chhabra
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull httpRequests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## Contact
 Feel free to reach out to me over email mentioned in my GitHub profile.

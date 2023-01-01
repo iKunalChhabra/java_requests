@@ -1,4 +1,4 @@
-package com.kunalchhabra.requests;
+package com.kunalchhabra.requests.utils;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -16,7 +16,7 @@ public class Hash {
      * Constructor
      * @param message byte array to be hashed
      */
-    protected Hash(byte[] message) {
+    public Hash(byte[] message) {
         this.message = message;
     }
 

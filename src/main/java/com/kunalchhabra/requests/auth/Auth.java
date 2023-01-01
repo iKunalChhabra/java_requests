@@ -1,4 +1,6 @@
-package com.kunalchhabra.requests;
+package com.kunalchhabra.requests.auth;
+
+import com.kunalchhabra.requests.props.Properties;
 
 import java.util.Base64;
 
@@ -12,7 +14,7 @@ import java.util.Base64;
  *
  * Auth class updates its key and value to request headers.
  */
-public class Auth extends Properties{
+public class Auth extends Properties {
 
     /**
      * Constructor for Auth class
@@ -22,12 +24,12 @@ public class Auth extends Properties{
     }
 
     /**
-     * HTTP Basic Auth
+     * Basic Auth
      * @param username Username
      * @param password Password
      * @return Auth
      */
-    public Auth HTTPBasicAuth(String username, String password){
+    public Auth BasicAuth(String username, String password){
         byte[] authBytes = (username + ":" + password).getBytes();
         String authString = Base64.getEncoder().encodeToString(authBytes);
         this.set("Authorization", "Basic " + authString);
@@ -39,7 +41,7 @@ public class Auth extends Properties{
      * @param token Token
      * @return Auth
      */
-    public Auth HTTPBearerAuth(String token){
+    public Auth BearerAuth(String token){
         this.set("Authorization", "Bearer " + token);
         return this;
     }

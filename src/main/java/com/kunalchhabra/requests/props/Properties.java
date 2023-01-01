@@ -1,4 +1,4 @@
-package com.kunalchhabra.requests;
+package com.kunalchhabra.requests.props;
 import java.util.HashMap;
 
 /**

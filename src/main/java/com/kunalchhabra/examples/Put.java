@@ -1,9 +1,9 @@
 package com.kunalchhabra.examples;
 
-import com.kunalchhabra.requests.Header;
-import com.kunalchhabra.requests.Param;
-import com.kunalchhabra.requests.Requests;
-import com.kunalchhabra.requests.Response;
+import com.kunalchhabra.requests.props.Header;
+import com.kunalchhabra.requests.props.Param;
+import com.kunalchhabra.requests.http.HttpRequests;
+import com.kunalchhabra.requests.response.Response;
 
 import java.io.IOException;
 
@@ -42,7 +42,7 @@ public class Put {
         String body = "{\"name\": \"John\", \"age\": 21}";
 
         // create a new request and get the response
-        Requests requests = new Requests();
+        HttpRequests requests = new HttpRequests();
         Response response = requests.put(url, headers, params, body.getBytes());
 
         // print the response

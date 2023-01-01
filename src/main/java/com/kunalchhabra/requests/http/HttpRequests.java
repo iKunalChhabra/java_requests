@@ -1,4 +1,9 @@
-package com.kunalchhabra.requests;
+package com.kunalchhabra.requests.http;
+
+import com.kunalchhabra.requests.auth.Auth;
+import com.kunalchhabra.requests.props.Header;
+import com.kunalchhabra.requests.props.Param;
+import com.kunalchhabra.requests.response.Response;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -6,20 +11,20 @@ import java.net.HttpURLConnection;
 /**
  * This class is used to create a new request.
  */
-public class Requests {
+public class HttpRequests {
     private Auth auth = new Auth();
 
     /**
      * Creates a new request with no authentication.
      */
-    public Requests(){
+    public HttpRequests(){
     }
 
     /**
      * Creates a new request with authentication.
      * @param auth The authentication object.
      */
-    public Requests(Auth auth){
+    public HttpRequests(Auth auth){
         this.auth = auth;
     }
 
@@ -33,8 +38,8 @@ public class Requests {
      * @throws IOException IOException
      */
     public Response get(String url, Header headers, Param params) throws IOException {
-        HttpURLConnection connection = Utils.createConnection(url, "GET", headers, params, this.auth);
-        return Utils.readConnection(connection);
+        HttpURLConnection connection = HttpUtils.createConnection(url, "GET", headers, params, this.auth);
+        return HttpUtils.readConnection(connection);
     }
 
     /**
@@ -70,9 +75,9 @@ public class Requests {
      * @throws IOException IOException
      */
     public Response post(String url, Header headers, Param params, byte[] byteData) throws IOException {
-        HttpURLConnection connection = Utils.createConnection(url, "POST", headers, params,this.auth);
-        Utils.setData(connection, byteData);
-        return Utils.readConnection(connection);
+        HttpURLConnection connection = HttpUtils.createConnection(url, "POST", headers, params,this.auth);
+        HttpUtils.setData(connection, byteData);
+        return HttpUtils.readConnection(connection);
     }
 
     /**
@@ -120,9 +125,9 @@ public class Requests {
      * @throws IOException IOException
      */
     public Response put(String url, Header headers, Param params, byte[] byteData) throws IOException {
-        HttpURLConnection connection = Utils.createConnection(url, "PUT", headers, params,this.auth);
-        Utils.setData(connection, byteData);
-        return Utils.readConnection(connection);
+        HttpURLConnection connection = HttpUtils.createConnection(url, "PUT", headers, params,this.auth);
+        HttpUtils.setData(connection, byteData);
+        return HttpUtils.readConnection(connection);
     }
 
     /**
@@ -174,10 +179,10 @@ public class Requests {
                            " This library uses 'POST' method in request but overrides the method to 'PATCH' using HTTP header 'X-HTTP-Method-Override'." +
                            " This may not work with some servers.");
 
-        HttpURLConnection connection = Utils.createConnection(url, "POST", headers, params,this.auth);
+        HttpURLConnection connection = HttpUtils.createConnection(url, "POST", headers, params,this.auth);
         connection.setRequestProperty("X-HTTP-Method-Override", "PATCH");
-        Utils.setData(connection, byteData);
-        return Utils.readConnection(connection);
+        HttpUtils.setData(connection, byteData);
+        return HttpUtils.readConnection(connection);
     }
 
     /**
@@ -224,8 +229,8 @@ public class Requests {
      * @throws IOException IOException
      */
     public Response delete(String url, Header headers, Param params) throws IOException {
-        HttpURLConnection connection = Utils.createConnection(url, "DELETE", headers, params,this.auth);
-        return Utils.readConnection(connection);
+        HttpURLConnection connection = HttpUtils.createConnection(url, "DELETE", headers, params,this.auth);
+        return HttpUtils.readConnection(connection);
     }
 
     /**

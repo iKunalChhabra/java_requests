@@ -1,5 +1,8 @@
-package com.kunalchhabra.requests;
+package com.kunalchhabra.requests.response;
 
+import com.kunalchhabra.requests.utils.Hash;
+import com.kunalchhabra.requests.utils.JsonParser;
+import com.kunalchhabra.requests.props.ResponseHeader;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -25,7 +28,7 @@ public class Response {
      * @param byteData   byte data
      * @param headers    response headers
      */
-    protected Response(int statusCode, byte[] byteData, ResponseHeader headers) {
+    public Response(int statusCode, byte[] byteData, ResponseHeader headers) {
         this.statusCode = statusCode;
         this.byteData = byteData;
         this.headers = headers;

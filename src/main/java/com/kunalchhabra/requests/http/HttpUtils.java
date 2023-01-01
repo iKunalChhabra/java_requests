@@ -1,21 +1,25 @@
-package com.kunalchhabra.requests;
+package com.kunalchhabra.requests.http;
+
+import com.kunalchhabra.requests.auth.Auth;
+import com.kunalchhabra.requests.props.Header;
+import com.kunalchhabra.requests.props.Param;
+import com.kunalchhabra.requests.props.ResponseHeader;
+import com.kunalchhabra.requests.response.Response;
+import com.kunalchhabra.requests.utils.CommonUtils;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 
 
 /**
- * Utility class for various common methods
+ * Utility class for various common HTTP methods
  */
-public class Utils {
+public class HttpUtils {
 
     /** Constructor for Utils class
      */
-    private Utils() {
+    private HttpUtils() {
     }
 
     /**
@@ -30,14 +34,14 @@ public class Utils {
      * @throws IOException IOException
      */
     protected static HttpURLConnection createConnection(String url, String method, Header headers, Param params, Auth auth) throws IOException {
-        url = Utils.setParams(url, params);
+        url = CommonUtils.setParams(url, params);
 
         URL urlObject = new URL(url);
         HttpURLConnection connection = (HttpURLConnection) urlObject.openConnection();
 
         connection.setRequestMethod(method);
-        Utils.setHeaders(connection, headers);
-        Utils.setAuth(connection, auth);
+        HttpUtils.setHeaders(connection, headers);
+        HttpUtils.setAuth(connection, auth);
         return connection;
     }
 
@@ -57,10 +61,10 @@ public class Utils {
         ResponseHeader headers = new ResponseHeader(connection.getHeaderFields());
         byte[] byteData;
         if (statusCode == 200) {
-            byteData = Utils.readData(connection);
+            byteData = HttpUtils.readData(connection);
         }
         else {
-            byteData = Utils.readError(connection);
+            byteData = HttpUtils.readError(connection);
         }
         connection.disconnect();
 
@@ -77,39 +81,6 @@ public class Utils {
     }
 
     /**
-     * Set the parameters for the HTTP Connection.
-     * @param url the url to connect to
-     * @param params the params to use
-     *
-     * @return the new url with the parameters
-     */
-    protected static String setParams(String url, Param params) {
-        StringBuilder urlBuilder = new StringBuilder(url);
-        if (params.size() > 0) {
-            urlBuilder.append("?");
-            for (String key : params.keySet()) {
-                String value = URLEncoder.encode(params.get(key), StandardCharsets.UTF_8);
-                urlBuilder.append(key).append("=").append(value).append("&");
-            }
-            urlBuilder.deleteCharAt(urlBuilder.length() - 1);
-        }
-        return urlBuilder.toString();
-    }
-
-    /**
-     * Common method to read input stream from the HTTP Connection.
-     *
-     * @param input the input stream
-     *
-     * @return the byte array of the input stream
-     * @throws IOException IOException
-     */
-    protected static byte[] readResponse(InputStream input) throws IOException {
-        return input.readAllBytes();
-    }
-
-
-    /**
      * Read the response body from the HTTP Connection.
      *
      * @param connection the HTTP Connection
@@ -118,7 +89,7 @@ public class Utils {
      * @throws IOException IOException
      */
     protected static byte[] readData(HttpURLConnection connection) throws IOException {
-        return readResponse(connection.getInputStream());
+        return CommonUtils.readResponse(connection.getInputStream());
     }
 
     /**
@@ -130,7 +101,7 @@ public class Utils {
      * @throws IOException IOException
      */
     protected static byte[] readError(HttpURLConnection connection) throws IOException {
-        return readResponse(connection.getErrorStream());
+        return CommonUtils.readResponse(connection.getErrorStream());
     }
 
     /**

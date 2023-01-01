@@ -1,6 +1,6 @@
 package com.kunalchhabra.examples;
 
-import com.kunalchhabra.requests.http.HttpRequests;
+import com.kunalchhabra.requests.https.HttpsRequests;
 import com.kunalchhabra.requests.response.Response;
 
 import java.io.IOException;
@@ -8,12 +8,12 @@ import java.io.IOException;
 /**
  * Examples to send a get request.
  */
-public class GetAndParseJson {
+public class HttpsGet {
 
     /**
-     * Constructor for GetAndParseJson class
+     * Constructor for HttpsGet class
      */
-    public GetAndParseJson() {
+    public HttpsGet() {
     }
 
     /**
@@ -24,8 +24,8 @@ public class GetAndParseJson {
     public static void main(String[] args) throws IOException {
 
         // create a new request and get the response
-        HttpRequests requests = new HttpRequests();
-        Response response = requests.get("http://jsonplaceholder.typicode.com/users");
+        HttpsRequests requests = new HttpsRequests();
+        Response response = requests.get("https://jsonplaceholder.typicode.com/users");
 
         // print the response status code
         System.out.println("Status Code: " + response.getStatusCode());

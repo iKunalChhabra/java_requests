@@ -1,10 +1,10 @@
 package com.kunalchhabra.examples;
 
-import com.kunalchhabra.requests.Header;
-import com.kunalchhabra.requests.Param;
-import com.kunalchhabra.requests.Requests;
-import com.kunalchhabra.requests.Response;
-import com.kunalchhabra.requests.ResponseHeader;
+import com.kunalchhabra.requests.http.HttpRequests;
+import com.kunalchhabra.requests.props.Header;
+import com.kunalchhabra.requests.props.Param;
+import com.kunalchhabra.requests.props.ResponseHeader;
+import com.kunalchhabra.requests.response.Response;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -42,7 +42,7 @@ public class ResponseTypes {
         params.set("id", "1");
 
         // create a new request and get the response
-        Requests requests = new Requests();
+        HttpRequests requests = new HttpRequests();
         Response response = requests.get(url, headers, params);
 
         // print the response
