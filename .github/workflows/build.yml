@@ -35,6 +35,9 @@ jobs:
           name: Java Docs
           path: build/docs/javadoc
 
+      - name: Remove .gitignore file
+        run: rm -f .gitignore
+
       - name: Commit Javadoc
         uses: EndBug/add-and-commit@v7
         with:
