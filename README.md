@@ -2,9 +2,9 @@
 
 A simple python requests like library for Java.
 
-- [Download java_requests-1.0.0.jar](https://github.com/iKunalChhabra/java_requests/releases/download/1.0.0/java_requests-1.0.0.jar)
+- [Download java_requests-1.1.0.jar](https://github.com/iKunalChhabra/java_requests/releases/download/1.1.0/java_requests-1.1.0.jar)
 
-- [Go to latest release](https://github.com/iKunalChhabra/java_requests/releases/tag/1.0.0)
+- [Go to latest release](https://github.com/iKunalChhabra/java_requests/releases/tag/1.1.0)
 
 - [Go to code examples](https://github.com/iKunalChhabra/java_requests/tree/main/src/main/java/com/kunalchhabra/examples)
 
