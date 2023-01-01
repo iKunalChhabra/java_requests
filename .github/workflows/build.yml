@@ -44,6 +44,9 @@ jobs:
       - name: Remove .gitignore file
         run: rm -f .gitignore
 
+      - name: Copy Java Docs to root
+        run: cp -r build/docs/javadoc ./
+
       - name: Commit Javadoc
         uses: EndBug/add-and-commit@v7
         with:
