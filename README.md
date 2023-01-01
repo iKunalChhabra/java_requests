@@ -73,7 +73,7 @@ Response: {
 [See other examples](src/main/java/com/kunalchhabra/examples/)
 
 ## Project Status
-### Supported
+### Available Functionality
 - **Protocols:**
   - HTTP
 - **Methods:**
@@ -101,9 +101,7 @@ Response: {
   - Custom
 
 ### Upcoming
-- Logging
-- Testing
-- Documentation
+- Testing for each class.
 
 ## Author
 Kunal Chhabra
