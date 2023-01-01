@@ -48,7 +48,7 @@ jobs:
         run: mv build/docs/javadoc ./docs
 
       - name: Commit Javadoc
-        uses: EndBug/add-and-commit@v7
+        uses: EndBug/add-and-commit@v9
         with:
           default_author: github_actor
           message: "Update Javadoc by GitHub Actions"
