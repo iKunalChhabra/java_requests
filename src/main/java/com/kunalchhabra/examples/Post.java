@@ -8,7 +8,24 @@ import com.kunalchhabra.requests.Response;
 import java.io.IOException;
 
 
+/**
+ * Examples to send a post request.
+ */
 public class Post {
+
+    /**
+     * Constructor for Post class
+     */
+
+    public Post() {
+
+    }
+
+    /**
+     * Send a post request
+     * @param args command line arguments
+     * @throws IOException IOException
+     */
     public static void main(String[] args) throws IOException {
 
         // api endpoint

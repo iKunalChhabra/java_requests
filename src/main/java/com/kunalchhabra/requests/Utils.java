@@ -13,6 +13,11 @@ import java.nio.charset.StandardCharsets;
  */
 public class Utils {
 
+    /** Constructor for Utils class
+     */
+    private Utils() {
+    }
+
     /**
      * Create a HTTP Connection.
      * @param url the url to connect to
@@ -22,6 +27,7 @@ public class Utils {
      * @param auth the auth to use
      *
      * @return the HTTP Connection
+     * @throws IOException IOException
      */
     protected static HttpURLConnection createConnection(String url, String method, Header headers, Param params, Auth auth) throws IOException {
         url = Utils.setParams(url, params);
@@ -43,7 +49,7 @@ public class Utils {
      *
      * @return the Response
      *
-     * @throws IOException
+     * @throws IOException IOException
      */
     protected static Response readConnection(HttpURLConnection connection) throws IOException {
         connection.connect();
@@ -96,6 +102,7 @@ public class Utils {
      * @param input the input stream
      *
      * @return the byte array of the input stream
+     * @throws IOException IOException
      */
     protected static byte[] readResponse(InputStream input) throws IOException {
         return input.readAllBytes();
@@ -108,6 +115,7 @@ public class Utils {
      * @param connection the HTTP Connection
      *
      * @return the byte array of the response body
+     * @throws IOException IOException
      */
     protected static byte[] readData(HttpURLConnection connection) throws IOException {
         return readResponse(connection.getInputStream());
@@ -119,6 +127,7 @@ public class Utils {
      * @param connection the HTTP Connection
      *
      * @return the byte array of the error body
+     * @throws IOException IOException
      */
     protected static byte[] readError(HttpURLConnection connection) throws IOException {
         return readResponse(connection.getErrorStream());
@@ -129,6 +138,7 @@ public class Utils {
      *
      * @param connection the HTTP Connection
      * @param byteDate the byte array of the data to send
+     * @throws IOException IOException
      */
     protected static void setData(HttpURLConnection connection, byte[] byteDate) throws IOException {
         if (byteDate.length > 0) {

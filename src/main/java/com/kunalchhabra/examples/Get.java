@@ -7,8 +7,22 @@ import com.kunalchhabra.requests.Response;
 
 import java.io.IOException;
 
-
+/**
+ * Examples to send a get request.
+ */
 public class Get {
+
+    /**
+     * Constructor for Get class
+     */
+    public Get() {
+    }
+
+    /**
+     * Send a get request
+     * @param args command line arguments
+     * @throws IOException IOException
+     */
     public static void main(String[] args) throws IOException {
 
         // api endpoint

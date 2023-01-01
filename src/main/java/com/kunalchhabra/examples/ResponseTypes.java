@@ -9,8 +9,24 @@ import com.kunalchhabra.requests.ResponseHeader;
 import java.io.IOException;
 import java.util.Arrays;
 
-
+/**
+ * Examples to get various response types.
+ */
 public class ResponseTypes {
+
+    /**
+     * Constructor for ResponseTypes class
+     */
+
+    public ResponseTypes() {
+
+    }
+
+    /**
+     * Get the response as a string.
+     * @param args command line arguments
+     * @throws IOException IOException
+     */
     public static void main(String[] args) throws IOException {
 
         // api endpoint

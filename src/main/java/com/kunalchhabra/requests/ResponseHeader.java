@@ -12,8 +12,7 @@ public class ResponseHeader extends HashMap<String, List<String>> {
 
     /**
      * Get the value of a header
-     * @param key the header name
-     * @return the value of the header as List of Strings
+     * @param map Map of headers
      */
     public ResponseHeader(Map<String, List<String>> map) {
         super(map);

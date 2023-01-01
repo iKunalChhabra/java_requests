@@ -13,13 +13,24 @@ jobs:
           java-version: '18'
           distribution: 'corretto'
 
-      - name: Setup Gradle
+      - name: Gradle Build
         uses: gradle/gradle-build-action@v2
         with:
           arguments: build
 
-      - name: Upload artifact
+      - name: Gradle Generate Javadoc
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: javadoc
+
+      - name: Upload Java JAR
         uses: actions/upload-artifact@v3
         with:
-          name: Package
+          name: Java JAR
           path: build/libs
+
+      - name: Publish Java Docs
+        uses: actions/upload-artifact@v3
+        with:
+          name: Java Docs
+          path: build/docs/javadoc

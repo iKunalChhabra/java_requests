@@ -112,7 +112,7 @@ public class Response {
      * Save the response body to a file
      *
      * @param filePath file path
-     * @throws IOException
+     * @throws IOException IOException
      */
 
     public void toFile(String filePath) throws IOException {

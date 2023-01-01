@@ -8,8 +8,22 @@ import com.kunalchhabra.requests.Auth;
 
 import java.io.IOException;
 
-
+/**
+ * Examples to authenticate a request
+ */
 public class Authentication {
+
+    /**
+     * Constructor for Authentication class
+     */
+    public Authentication() {
+    }
+
+    /**
+     * HTTP Basic Auth
+     * @param args command line arguments
+     * @throws IOException IOException
+     */
     public static void main(String[] args) throws IOException {
 
         // api endpoint

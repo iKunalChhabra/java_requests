@@ -2,8 +2,19 @@ plugins {
     id 'java'
 }
 
+javadoc {
+    source = sourceSets.main.allJava
+}
+
+sourceSets {
+    build {
+        java.srcDir file('src/main/java')
+
+    }
+}
+
 group 'com.kunalchhabra'
-version '0.5.0'
+version '0.6.0'
 
 repositories {
     mavenCentral()

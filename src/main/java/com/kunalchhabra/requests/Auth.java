@@ -15,9 +15,16 @@ import java.util.Base64;
 public class Auth extends Properties{
 
     /**
+     * Constructor for Auth class
+     */
+    public Auth() {
+        super();
+    }
+
+    /**
      * HTTP Basic Auth
-     * @param username
-     * @param password
+     * @param username Username
+     * @param password Password
      * @return Auth
      */
     public Auth HTTPBasicAuth(String username, String password){
@@ -29,7 +36,7 @@ public class Auth extends Properties{
 
     /**
      * Bearer Token
-     * @param token
+     * @param token Token
      * @return Auth
      */
     public Auth HTTPBearerAuth(String token){

@@ -8,7 +8,23 @@ import com.kunalchhabra.requests.Response;
 import java.io.IOException;
 
 
+/**
+ * Examples to send a patch request.
+ */
 public class Patch {
+
+    /**
+     * Constructor for Patch class
+     */
+    public Patch() {
+
+    }
+
+    /**
+     * Send a patch request
+     * @param args command line arguments
+     * @throws IOException IOException
+     */
     public static void main(String[] args) throws IOException {
 
         // api endpoint

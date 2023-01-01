@@ -7,8 +7,23 @@ import com.kunalchhabra.requests.Response;
 
 import java.io.IOException;
 
-
+/**
+ * Examples to send a put request.
+ */
 public class Put {
+
+    /**
+     * Constructor for Put class
+     */
+    public Put() {
+
+    }
+
+    /**
+     * Send a put request
+     * @param args command line arguments
+     * @throws IOException IOException
+     */
     public static void main(String[] args) throws IOException {
 
         // api endpoint
