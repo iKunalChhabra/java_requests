@@ -2,9 +2,6 @@
 
 A simple python requests like library for Java.
 
-#### [Go to documentation](https://ikunalchhabra.github.io/java_requests/com/kunalchhabra/requests/package-summary.html)
-
-
 ## Usage
 
 ```java
