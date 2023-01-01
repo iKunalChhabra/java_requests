@@ -1,5 +1,6 @@
 package com.kunalchhabra.examples;
 
+import com.kunalchhabra.requests.props.Body;
 import com.kunalchhabra.requests.props.Header;
 import com.kunalchhabra.requests.props.Param;
 import com.kunalchhabra.requests.http.HttpRequests;
@@ -39,11 +40,12 @@ public class Put {
         params.set("id", "1");
 
         // body
-        String body = "{\"name\": \"John\", \"age\": 21}";
+        Body body = new Body();
+        body.fromFile("src/main/java/com/kunalchhabra/examples/response.json");
 
         // create a new request and get the response
         HttpRequests requests = new HttpRequests();
-        Response response = requests.put(url, headers, params, body.getBytes());
+        Response response = requests.put(url, headers, params, body);
 
         // print the response
         System.out.println("Status Code: " + response.getStatusCode());

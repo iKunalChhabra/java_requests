@@ -1,11 +1,13 @@
 package com.kunalchhabra.examples;
 
+import com.kunalchhabra.requests.props.Body;
 import com.kunalchhabra.requests.props.Header;
 import com.kunalchhabra.requests.props.Param;
 import com.kunalchhabra.requests.http.HttpRequests;
 import com.kunalchhabra.requests.response.Response;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 
 /**
@@ -40,11 +42,16 @@ public class Patch {
         params.set("id", "1");
 
         // body
-        String body = "{\"name\": \"John\", \"age\": 21}";
+        HashMap<String, String> map = new HashMap<>();
+        map.put("name", "John");
+        map.put("email", "john@email.com");
+
+        Body body = new Body();
+        body.fromHashMap(map);
 
         // create a new request and get the response
         HttpRequests requests = new HttpRequests();
-        Response response = requests.patch(url, headers, params, body.getBytes());
+        Response response = requests.patch(url, headers, params, body);
 
         // print the response
         System.out.println("Status Code: " + response.getStatusCode());

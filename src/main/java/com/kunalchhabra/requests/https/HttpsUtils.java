@@ -108,13 +108,13 @@ public class HttpsUtils {
      * Send data for POST, PUT and PATCH requests.
      *
      * @param connection the HTTPS Connection
-     * @param byteDate the byte array of the data to send
+     * @param byteData the byte array of the data to send
      * @throws IOException IOException
      */
-    protected static void setData(HttpsURLConnection connection, byte[] byteDate) throws IOException {
-        if (byteDate.length > 0) {
+    protected static void setData(HttpsURLConnection connection, byte[] byteData) throws IOException {
+        if (byteData.length > 0) {
             connection.setDoOutput(true);
-            connection.getOutputStream().write(byteDate);
+            connection.getOutputStream().write(byteData);
         }
     }
 

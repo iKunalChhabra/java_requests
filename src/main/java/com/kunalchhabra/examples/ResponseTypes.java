@@ -1,6 +1,6 @@
 package com.kunalchhabra.examples;
 
-import com.kunalchhabra.requests.http.HttpRequests;
+import com.kunalchhabra.requests.https.HttpsRequests;
 import com.kunalchhabra.requests.props.Header;
 import com.kunalchhabra.requests.props.Param;
 import com.kunalchhabra.requests.props.ResponseHeader;
@@ -30,7 +30,7 @@ public class ResponseTypes {
     public static void main(String[] args) throws IOException {
 
         // api endpoint
-        String url = "http://127.0.0.1:5000/users";
+        String url = "https://jsonplaceholder.typicode.com/users/1";
 
         // headers
         Header headers = new Header();
@@ -42,7 +42,7 @@ public class ResponseTypes {
         params.set("id", "1");
 
         // create a new request and get the response
-        HttpRequests requests = new HttpRequests();
+        HttpsRequests requests = new HttpsRequests();
         Response response = requests.get(url, headers, params);
 
         // print the response
