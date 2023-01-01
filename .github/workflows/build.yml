@@ -53,4 +53,4 @@ jobs:
           default_author: github_actor
           message: "Update Javadoc by GitHub Actions"
           add: "docs"
-          branch: "gh-pages"
+          new_branch: "gh-pages"
