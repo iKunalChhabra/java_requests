@@ -24,7 +24,8 @@ public class Get {
         params.set("id", "1");
 
         // create a new request and get the response
-        Response response = Requests.get(url, headers, params);
+        Requests requests = new Requests();
+        Response response = requests.get(url, headers, params);
 
         // print the response
         System.out.println("Status Code: " + response.getStatusCode());

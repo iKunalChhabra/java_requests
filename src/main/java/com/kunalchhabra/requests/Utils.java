@@ -8,7 +8,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 public class Utils {
-    protected static HttpURLConnection createConnection(String url, String method, Header headers, Param params) throws IOException {
+    protected static HttpURLConnection createConnection(String url, String method, Header headers, Param params, Auth auth) throws IOException {
         url = Utils.setParams(url, params);
 
         URL urlObject = new URL(url);
@@ -16,6 +16,7 @@ public class Utils {
 
         connection.setRequestMethod(method);
         Utils.setHeaders(connection, headers);
+        Utils.setAuth(connection, auth);
         return connection;
     }
 
@@ -67,6 +68,12 @@ public class Utils {
         if (byteDate.length > 0) {
             connection.setDoOutput(true);
             connection.getOutputStream().write(byteDate);
+        }
+    }
+
+    protected static void setAuth(HttpURLConnection connection, Auth auth) {
+        for (String key : auth.keySet()) {
+            connection.setRequestProperty(key, auth.get(key));
         }
     }
 }

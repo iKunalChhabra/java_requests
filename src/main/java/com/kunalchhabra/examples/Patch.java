@@ -27,7 +27,8 @@ public class Patch {
         String body = "{\"name\": \"John\", \"age\": 21}";
 
         // create a new request and get the response
-        Response response = Requests.patch(url, headers, params, body.getBytes());
+        Requests requests = new Requests();
+        Response response = requests.patch(url, headers, params, body.getBytes());
 
         // print the response
         System.out.println("Status Code: " + response.getStatusCode());

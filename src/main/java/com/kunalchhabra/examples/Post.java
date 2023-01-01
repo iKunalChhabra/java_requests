@@ -27,7 +27,8 @@ public class Post {
         String body = "{\"name\": \"John\", \"age\": 21}";
 
         // create a new request and get the response
-        Response response = Requests.post(url, headers, params, body.getBytes());
+        Requests requests = new Requests();
+        Response response = requests.post(url, headers, params, body.getBytes());
 
         // print the response
         System.out.println("Status Code: " + response.getStatusCode());

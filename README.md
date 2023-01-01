@@ -23,7 +23,8 @@ public class Main {
         String url = "https://jsonplaceholder.typicode.com/users/1";
 
         // create a new request and get the response
-        Response response = Requests.get(url);
+        Requests requests = new Requests();
+        Response response = requests.get(url);
 
         // print the response
         System.out.println("Status Code: " + response.getStatusCode());
@@ -71,14 +72,38 @@ Response: {
 ```
 [See other examples](src/main/java/com/kunalchhabra/examples/)
 
-## Notes
-- This is work in progress. I will be adding more features as I go.
-- Protocol supported : HTTP
-- Methods supported : GET, POST, PUT, PATCH, DELETE
-- Response format supported : JSON, TEXT, BYTE, BASE64, FILE, HASH
-- POST and PUT data format supported : BYTE
-- Authentication is not supported yet.
-- Logging, Testing and Documentation are yet to be added.
+## Project Status
+### Supported
+- **Protocols:**
+  - HTTP
+- **Methods:**
+  - GET
+  - POST
+  - PUT
+  - PATCH
+  - DELETE
+- **Response formats:**
+  - JSON
+  - TEXT
+  - BYTE
+  - BASE64
+  - FILE
+  - HASH
+    - MD5
+    - SHA1
+    - SHA256
+    - SHA512
+- **POST, PUT, PATCH data formats:**
+  - BYTE
+- **Authentication:**
+  - Basic
+  - Bearer
+  - Custom
+
+### Upcoming
+- Logging
+- Testing
+- Documentation
 
 ## Author
 Kunal Chhabra
