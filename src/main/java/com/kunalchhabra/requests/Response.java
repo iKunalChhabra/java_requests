@@ -90,6 +90,21 @@ public class Response {
     }
 
     /**
+     * Get the response body as a JsonParser
+     *
+     * @return response body as a JsonParser
+     */
+
+    public JsonParser toJson() {
+        if (this.toString().startsWith("[")) {
+            return new JsonParser(this.toJsonArray());
+        }
+        else{
+            return new JsonParser(this.toJsonObject());
+        }
+    }
+
+    /**
      * Get the response body as a byte array
      *
      * @return response body as a byte array

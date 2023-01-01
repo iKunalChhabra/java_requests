@@ -7,68 +7,32 @@ A simple python requests like library for Java.
 ```java
 package com.kunalchhabra.examples;
 
-import com.kunalchhabra.requests.Header;
-import com.kunalchhabra.requests.Param;
 import com.kunalchhabra.requests.Requests;
 import com.kunalchhabra.requests.Response;
-import org.json.JSONObject;
 
 import java.io.IOException;
 
+class Example {
+  public static void main(String[] args) throws IOException {
 
-public class Main {
-    public static void main(String[] args) throws IOException {
+    // create a new request and get the response
+    Requests requests = new Requests();
+    Response response = requests.get("http://jsonplaceholder.typicode.com/users");
 
-        // api endpoint
-        String url = "https://jsonplaceholder.typicode.com/users/1";
+    // print the response status code
+    System.out.println("Status Code: " + response.getStatusCode());
 
-        // create a new request and get the response
-        Requests requests = new Requests();
-        Response response = requests.get(url);
-
-        // print the response
-        System.out.println("Status Code: " + response.getStatusCode());
-        System.out.println("Response: " + response);
-
-        // get deep nested values in Json
-        JSONObject geo = response.toJsonObject().getJSONObject("address").getJSONObject("geo");
-        double lat = geo.getDouble("lat");
-        double lng = geo.getDouble("lng");
-        System.out.println("(Lat, Lng): (" + lat + ", " + lng + ")");
-    }
+    // parse and print the response
+    double lat = response.toJson().get("[0]->address->geo->lat").toDouble();
+    System.out.println("latitude: " + lat);
+  }
 }
-
 
 ```
 ### Output
 ```bash
-Status Code: 200
-
-Response: {
-  "id": 1,
-  "name": "Leanne Graham",
-  "username": "Bret",
-  "email": "Sincere@april.biz",
-  "address": {
-    "street": "Kulas Light",
-    "suite": "Apt. 556",
-    "city": "Gwenborough",
-    "zipcode": "92998-3874",
-    "geo": {
-      "lat": "-37.3159",
-      "lng": "81.1496"
-    }
-  },
-  "phone": "1-770-736-8031 x56442",
-  "website": "hildegard.org",
-  "company": {
-    "name": "Romaguera-Crona",
-    "catchPhrase": "Multi-layered client-server neural-net",
-    "bs": "harness real-time e-markets"
-  }
-}
-
-(Lat, Lng): (-37.3159, 81.1496)
+>> Status Code: 200
+>> latitude: -37.3159
 ```
 [See other examples](src/main/java/com/kunalchhabra/examples/)
 
