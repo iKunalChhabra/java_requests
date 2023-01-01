@@ -1,6 +1,13 @@
 # Java Requests
 
-A simple python httpRequests like library for Java.
+A simple python requests like library for Java.
+
+- [Download java_requests-1.0.0.jar](https://github.com/iKunalChhabra/java_requests/releases/download/1.0.0/java_requests-1.0.0.jar)
+
+- [Go to latest release](https://github.com/iKunalChhabra/java_requests/releases/tag/1.0.0)
+
+- [Go to code examples](https://github.com/iKunalChhabra/java_requests/tree/main/src/main/java/com/kunalchhabra/examples)
+
 
 ## Usage
 
@@ -34,7 +41,6 @@ class Example {
 >> Status Code: 200
 >> latitude: -37.3159
 ```
-[See other examples](src/main/java/com/kunalchhabra/examples/)
 
 ## Project Status
 ### Available Functionality
@@ -66,10 +72,10 @@ class Example {
   - Custom
 
 ## Author
-Kunal Chhabra
+[Kunal Chhabra](https://github.com/iKunalChhabra/)
 
 ## Contributing
-Pull httpRequests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## Contact
 Feel free to reach out to me over email mentioned in my GitHub profile.
