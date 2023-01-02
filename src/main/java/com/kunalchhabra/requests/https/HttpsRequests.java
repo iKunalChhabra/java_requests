@@ -76,7 +76,7 @@ public class HttpsRequests {
      */
     public Response post(String url, Header headers, Param params, Body body) throws IOException {
         HttpsURLConnection connection = HttpsUtils.createConnection(url, "POST", headers, params,this.auth);
-        HttpsUtils.setData(connection, body.getBytes());
+        HttpsUtils.setData(connection, body.toBytes());
         return HttpsUtils.readConnection(connection);
     }
 
@@ -126,7 +126,7 @@ public class HttpsRequests {
      */
     public Response put(String url, Header headers, Param params, Body body) throws IOException {
         HttpsURLConnection connection = HttpsUtils.createConnection(url, "PUT", headers, params,this.auth);
-        HttpsUtils.setData(connection, body.getBytes());
+        HttpsUtils.setData(connection, body.toBytes());
         return HttpsUtils.readConnection(connection);
     }
 
@@ -181,7 +181,7 @@ public class HttpsRequests {
 
         HttpsURLConnection connection = HttpsUtils.createConnection(url, "POST", headers, params,this.auth);
         connection.setRequestProperty("X-HTTP-Method-Override", "PATCH");
-        HttpsUtils.setData(connection, body.getBytes());
+        HttpsUtils.setData(connection, body.toBytes());
         return HttpsUtils.readConnection(connection);
     }
 

@@ -27,22 +27,20 @@ public class Auth extends Properties {
      * Basic Auth
      * @param username Username
      * @param password Password
-     * @return Auth
      */
-    public Auth BasicAuth(String username, String password){
+    public void BasicAuth(String username, String password){
         byte[] authBytes = (username + ":" + password).getBytes();
         String authString = Base64.getEncoder().encodeToString(authBytes);
+        this.clear();
         this.set("Authorization", "Basic " + authString);
-        return this;
     }
 
     /**
      * Bearer Token
      * @param token Token
-     * @return Auth
      */
-    public Auth BearerAuth(String token){
+    public void BearerAuth(String token){
+        this.clear();
         this.set("Authorization", "Bearer " + token);
-        return this;
     }
 }

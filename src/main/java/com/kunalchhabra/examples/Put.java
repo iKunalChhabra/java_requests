@@ -42,6 +42,7 @@ public class Put {
         // body
         Body body = new Body();
         body.fromFile("src/main/java/com/kunalchhabra/examples/response.json");
+        System.out.println("MD5 of request body: " + body.toHash().getMD5());
 
         // create a new request and get the response
         HttpRequests requests = new HttpRequests();

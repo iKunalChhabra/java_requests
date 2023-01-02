@@ -66,7 +66,7 @@ class Example {
     - SHA512
 - **POST, PUT, PATCH data formats:**
   - BYTE
-  - STRING
+  - TEXT
   - JSON
   - FILE
   - BASE64

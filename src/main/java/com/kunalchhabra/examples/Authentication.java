@@ -39,7 +39,19 @@ public class Authentication {
         params.set("id", "1");
 
         // auth
-        Auth auth = new Auth().BasicAuth("john@email.com", "pAss123$");
+        Auth auth = new Auth();
+
+        // custom authentication
+        auth.set("Authorization","myToken customTokenFormat");
+
+        // basic authentication
+        auth.BasicAuth("john@email.com", "pAss123$");
+
+        // bearer authentication
+        auth.BearerAuth("JHGFG87657HGFHJ");
+
+        // only the latest auth will be used
+        auth.BasicAuth("jane@email.com", "PaSs456#");
 
         // create a new request and get the response
         HttpRequests requests = new HttpRequests(auth);

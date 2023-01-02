@@ -1,5 +1,6 @@
 package com.kunalchhabra.requests.props;
 
+import com.kunalchhabra.requests.utils.Hash;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -96,12 +97,21 @@ public class Body {
      *
      * @return byte array
      */
-    public byte[] getBytes() {
+    public byte[] toBytes() {
         if (this.byteArray == null) {
             return new byte[0];
         }
         else {
             return this.byteArray;
         }
+    }
+
+    /**
+     * Method to get the request body as a Hash string
+     *
+     * @return Hash of the request body
+     */
+    public Hash toHash() {
+        return new Hash(this.byteArray);
     }
 }
